@@ -25,7 +25,13 @@ To furnish marine biology enthusiasts, students, and professionals with resource
    - [PyTorch](./pytorch)
    - [YOLO](./yolo)
 
+## Getting Started 🚀
 
+To set up your environment and access all the Sea++ resources, simply run the provided setup script:
+
+```bash
+./setup.sh
+```
 
 ## Content Description 📖
 
