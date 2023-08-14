@@ -16,7 +16,7 @@ Hello, lovely coder! 🌟 First off, a big THANK YOU for considering a contribut
 
 6. **🌊 Push to Your Fork**: Send your changes sailing to your forked repository on GitHub.
 
-7. **🎁 Submit a Pull Request**: Arrive at the main [Sea++ island](YOUR_GITHUB_REPO_LINK_HERE) and offer your gift by clicking on "New Pull Request". Choose your fork and the branch you sailed on. Describe your journey and submit!
+7. **🎁 Submit a Pull Request**: Arrive at the main [Sea++ island](https://github.com/kluless13/SeaPlusPlus) and offer your gift by clicking on "New Pull Request". Choose your fork and the branch you sailed on. Describe your journey and submit!
 
 ## 🍄 Contribution Guidelines 🍄
 
