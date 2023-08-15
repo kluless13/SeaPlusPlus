@@ -11,7 +11,7 @@ done
 
 # Unzipping code resources
 echo "Unzipping code resources..."
-code_folders=("python/Basic Examples" "python/Statistical Tests" "python/Machine Learning Applications" "python/Image Detection in Marine Science" "julia" "tensorflow_models" "pytorch" "yolo")
+code_folders=("python/Basic Examples" "python/Statistical Tests" "python/cheatsheets" "python/Machine Learning Applications" "python/Image Detection in Marine Science" "julia" "tensorflow_models" "pytorch" "yolo")
 for folder in "${code_folders[@]}"; do
     unzip "./Code 🖥️/$folder/$folder.zip" -d "./Code 🖥️/$folder/"
 done
