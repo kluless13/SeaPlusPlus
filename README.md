@@ -30,7 +30,7 @@ To furnish marine biology enthusiasts, students, and professionals with resource
 To set up your environment and access all the Sea++ resources, simply run the provided setup script:
 
 ```bash
-./setup.sh
+./reqs/setup.sh
 ```
 
 ## Content Description 📖
