@@ -24,5 +24,6 @@ Hello, lovely coder! 🌟 First off, a big THANK YOU for considering a contribut
 - 🦄 Offer clear and dreamy explanations. Remember, our friends here might be new to the computational magic.
 - 🐠 Make sure your code spells are well-commented and tested.
 - 🌟 Respect the stars and constellations of our project. If you're introducing a new galaxy or topic, ensure it harmonizes with the existing universe.
+- Make sure the zip files are below 100MB and use ```git lfs``` to upload the files.
 
 Thank you for your magical touch and for helping Sea++ shine brighter! 🌟🐳 Let's make waves of change together! 🌊✨
