@@ -11,7 +11,7 @@ To furnish marine biology enthusiasts, students, and professionals with resource
 1. **Marine Science Subjects** 🐠
    - [Oceanography](./oceanography)
    - [Ecology](./ecology)
-   - [Conservation Science](./conservation_science)
+   - [Conservation Science](https://github.com/kluless13/SeaPlusPlus/tree/master/Marine%20Science%20Subjects%20%F0%9F%90%A0/conservation_science)
    
 2. **Code** 🖥️
    - [Python](./python)
