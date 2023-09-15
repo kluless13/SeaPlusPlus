@@ -2,8 +2,6 @@
 
 Marine conservation focuses on preserving and protecting marine ecosystems, species, and habitats. It aims to mitigate the impacts of human activities on the marine environment and ensure the sustainable use of marine resources.
 
-![Marine Conservation Image](https://path-to-your-image.com/marine-conservation-image.jpg)
-
 ## Table of Contents
 
 - [Introduction to Marine Conservation](#introduction-to-marine-conservation)

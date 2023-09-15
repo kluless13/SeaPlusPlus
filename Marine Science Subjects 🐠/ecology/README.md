@@ -2,8 +2,6 @@
 
 Marine ecology is the study of the interactions between marine organisms and their environment. It delves deep into understanding the relationships, distribution, and abundance of marine life within various marine ecosystems.
 
-![Marine Ecology Image](https://path-to-your-image.com/marine-ecology-image.jpg)
-
 ## Table of Contents
 
 - [Introduction to Marine Ecology](#introduction-to-marine-ecology)

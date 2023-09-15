@@ -2,8 +2,6 @@
 
 Oceanography, also known as marine science, is the study of the ocean and its processes. It encompasses a wide range of topics, from marine life to the physical properties of the sea.
 
-![Ocean Image](https://path-to-your-image.com/ocean-image.jpg)
-
 ## Table of Contents
 
 - [Branches of Oceanography](#branches-of-oceanography)
