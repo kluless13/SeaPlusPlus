@@ -6,15 +6,21 @@ echo "🌊 Welcome to Sea++ setup! 🌊"
 echo "Unzipping marine science resources..."
 marine_subjects=("oceanography" "ecology" "conservation_science")
 for subject in "${marine_subjects[@]}"; do
-    unzip "./$subject/$subject.zip" -d "./$subject/"
+    if ls "./$subject/"*.zip 1> /dev/null 2>&1; then
+        unzip "./$subject/*.zip" -d "./$subject/"
+    else
+        echo "Warning: No .zip files found in ./$subject/"
+    fi
 done
 
-# Unzipping code resources
-echo "Unzipping code resources..."
-code_folders=("python/Basic Examples" "python/Statistical Tests" "python/cheatsheets" "python/Machine Learning Applications" "python/Image Detection in Marine Science" "julia" "tensorflow_models" "pytorch" "yolo")
-for folder in "${code_folders[@]}"; do
-    unzip "./Code 🖥️/$folder/$folder.zip" -d "./Code 🖥️/$folder/"
-done
+
+# Unzipping code resources in Python/cheatsheets
+echo "Unzipping Python cheatsheets..."
+if [ -f "./Code 🖥️/Python/cheatsheets/cheatsheets.zip" ]; then
+    unzip "./Code 🖥️/Python/cheatsheets/cheatsheets.zip" -d "./Code 🖥️/Python/cheatsheets/"
+else
+    echo "Warning: cheatsheets.zip not found in ./Code 🖥️/Python/cheatsheets/"
+fi
 
 # Convert .md files to .pdf
 echo "Converting .md files to .pdf..."
@@ -25,11 +31,9 @@ OS="$(uname)"
 # Install and use pandoc based on OS
 if [ "$OS" == "Darwin" ]; then  # Mac OS
     # Check if pandoc is installed
-    if ! command -v pandoc &> /dev/null
-    then
+    if ! command -v pandoc &> /dev/null; then
         # Check if brew is installed
-        if ! command -v brew &> /dev/null
-        then
+        if ! command -v brew &> /dev/null; then
             echo "Brew is not installed. Installing brew..."
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
@@ -38,11 +42,9 @@ if [ "$OS" == "Darwin" ]; then  # Mac OS
     fi
 elif [ "$OS" == "Windows_NT" ]; then  # Windows OS
     # Check if pandoc is installed
-    if ! command -v pandoc &> /dev/null
-    then
+    if ! command -v pandoc &> /dev/null; then
         # Check if choco is installed
-        if ! command -v choco &> /dev/null
-        then
+        if ! command -v choco &> /dev/null; then
             echo "Chocolatey is not installed. Please install Chocolatey from https://chocolatey.org/install"
             exit 1
         fi
@@ -54,10 +56,9 @@ else
     exit 1
 fi
 
-# Convert all .md files in the repository to .pdf
-find . -name "*.md" -exec sh -c 'pandoc "${0}" -o "${0%.md}.pdf"' {} \;
+# Convert all .md files in the repository to .pdf using xelatex for better Unicode support
+find . -name "*.md" -exec sh -c 'pandoc "${0}" --pdf-engine=xelatex -o "${0%.md}.pdf"' {} \;
 
 echo "Conversion complete!"
-
-
 echo "✨ Setup complete! Dive into Sea++! 🐠"
+
