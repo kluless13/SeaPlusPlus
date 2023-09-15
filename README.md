@@ -19,7 +19,7 @@ To furnish marine biology enthusiasts, students, and professionals with resource
      - Statistical Tests
      - Machine Learning Applications
      - Image Detection in Marine Science
-   - [Julia](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/julia)
+   - [Julia](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/Julia)
      - An alternate language to Python
    - [TensorFlow Models](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/tensorflow_models)
    - [PyTorch](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/PyTorch)
