@@ -93,10 +93,6 @@ Machine learning offers a powerful set of tools for analyzing complex marine dat
 
 ---
 
-Certainly! Here's an extended breakdown of the essential machine learning libraries, their primary functionalities, and the "why" behind their significance:
-
----
-
 ## General Machine Learning:
 
 ### scikit-learn
@@ -196,9 +192,6 @@ Certainly! Here's an extended breakdown of the essential machine learning librar
 ### H2O.ai
 - **Functionality**: Provides an open-source machine learning platform that supports the whole ML lifecycle.
 - **Why?**: H2O.ai offers a range of tools from data preprocessing to model deployment, making it a comprehensive platform for end-to-end machine learning tasks.
-
----
-Certainly! Let's delve deeper into `scikit-learn`, one of the most popular libraries for machine learning in Python.
 
 ---
 
