@@ -2,8 +2,6 @@
 
 TensorFlow, an open-source machine learning framework, has seen a surge in its applications across various domains. One such domain is marine science, where TensorFlow models are being utilized to address complex problems and enhance our understanding of marine ecosystems.
 
-![TensorFlow and Marine Science](https://path-to-your-image.com/tensorflow-marine-science.jpg)
-
 ## Table of Contents
 
 - [Introduction to TensorFlow](#introduction-to-tensorflow)
