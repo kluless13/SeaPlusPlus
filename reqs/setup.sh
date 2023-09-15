@@ -25,6 +25,8 @@ unzip_files_in_directory() {
     cd "$dir"
     if ls *.zip 1> /dev/null 2>&1; then
         unzip "*.zip"
+        # Delete all zip files after unzipping
+        rm *.zip
     else
         echo "Warning: No .zip files found in $dir"
     fi
@@ -56,6 +58,6 @@ unzip_files_in_directory "Code 🖥️/Python/cheatsheets"
 convert_md_to_pdf "Marine Science Subjects 🐠/oceanography"
 convert_md_to_pdf "Marine Science Subjects 🐠/ecology"
 convert_md_to_pdf "Marine Science Subjects 🐠/conservation_science"
-convert_md_to_pdf "Code 🖥️/Python/cheatsheets"
+convert_md_to_pdf "Code 🖥️/Python"
 
 echo "✨ Setup complete! Dive into Sea++! 🐠"
