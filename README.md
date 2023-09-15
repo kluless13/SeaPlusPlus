@@ -9,21 +9,21 @@ To furnish marine biology enthusiasts, students, and professionals with resource
 ## Table of Contents 📚
 
 1. **Marine Science Subjects** 🐠
-   - [Oceanography](./oceanography)
-   - [Ecology](./ecology)
+   - [Oceanography](https://github.com/kluless13/SeaPlusPlus/tree/master/Marine%20Science%20Subjects%20%F0%9F%90%A0/oceanography)
+   - [Ecology](https://github.com/kluless13/SeaPlusPlus/tree/master/Marine%20Science%20Subjects%20%F0%9F%90%A0/ecology)
    - [Conservation Science](https://github.com/kluless13/SeaPlusPlus/tree/master/Marine%20Science%20Subjects%20%F0%9F%90%A0/conservation_science)
    
 2. **Code** 🖥️
-   - [Python](./python)
+   - [Python](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/Python)
      - Basic Examples
      - Statistical Tests
      - Machine Learning Applications
      - Image Detection in Marine Science
-   - [Julia](./julia)
+   - [Julia](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/julia)
      - An alternate language to Python
-   - [TensorFlow Models](./tensorflow_models)
-   - [PyTorch](./pytorch)
-   - [YOLO](./yolo)
+   - [TensorFlow Models](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/tensorflow_models)
+   - [PyTorch](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/PyTorch)
+   - [YOLO](https://github.com/kluless13/SeaPlusPlus/tree/master/Code%20%F0%9F%96%A5%EF%B8%8F/YOLO)
 
 ## Getting Started 🚀
 
@@ -39,4 +39,4 @@ To set up your environment and access all the Sea++ resources, simply run the pr
 
 - **Code**: Set sail on a coding adventure with Python and Julia! 🚢💡 Use these source code templates to build cool stuff. All open source, of course! Whether you're looking to execute rudimentary statistical tests or employ machine learning for image detection in marine scenarios, this treasure trove is your guide.
 
-For an in-depth guide on contributing to this initiative, kindly refer to the [CONTRIBUTE.md](./CONTRIBUTE.md) file. Let's make waves together! 🌊✨
+For an in-depth guide on contributing to this initiative, kindly refer to the [CONTRIBUTE.md](https://github.com/kluless13/SeaPlusPlus/blob/master/CONTRIBUTE.md) file. Let's make waves together! 🌊✨

@@ -1,3 +1,5 @@
+# for kluless' eyes only
+
 import os
 
 def create_directory(path):
