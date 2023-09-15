@@ -2,6 +2,22 @@
 
 echo "🌊 Welcome to Sea++ setup! 🌊"
 
+# Check if pandoc is installed
+if ! command -v pandoc &> /dev/null; then
+    echo "pandoc is not installed."
+    # Detect the OS
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        echo "You are using Linux. You can install pandoc using:"
+        echo "sudo apt-get install pandoc"
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "You are using macOS. You can install pandoc using:"
+        echo "brew install pandoc"
+    else
+        echo "Please install pandoc manually from https://pandoc.org/installing.html"
+    fi
+    exit 1
+fi
+
 # Function to unzip files in a directory
 unzip_files_in_directory() {
     local dir="$1"
@@ -15,12 +31,31 @@ unzip_files_in_directory() {
     cd - > /dev/null
 }
 
+# Function to convert README.md to PDF
+convert_md_to_pdf() {
+    local dir="$1"
+    echo "Converting README.md to PDF in $dir..."
+    cd "$dir"
+    if [ -f "README.md" ]; then
+        pandoc README.md -o README.pdf
+    else
+        echo "Warning: README.md not found in $dir"
+    fi
+    cd - > /dev/null
+}
+
 # Unzipping marine science resources
-unzip_files_in_directory "oceanography"
-unzip_files_in_directory "ecology"
-unzip_files_in_directory "conservation_science"
+unzip_files_in_directory "Marine Science Subjects 🐠/oceanography"
+unzip_files_in_directory "Marine Science Subjects 🐠/ecology"
+unzip_files_in_directory "Marine Science Subjects 🐠/conservation_science"
 
 # Unzipping code resources in Python/cheatsheets
 unzip_files_in_directory "Code 🖥️/Python/cheatsheets"
+
+# Convert README.md to PDF
+convert_md_to_pdf "Marine Science Subjects 🐠/oceanography"
+convert_md_to_pdf "Marine Science Subjects 🐠/ecology"
+convert_md_to_pdf "Marine Science Subjects 🐠/conservation_science"
+convert_md_to_pdf "Code 🖥️/Python/cheatsheets"
 
 echo "✨ Setup complete! Dive into Sea++! 🐠"
