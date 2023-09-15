@@ -39,7 +39,7 @@ convert_md_to_pdf() {
     echo "Converting README.md to PDF in $dir..."
     cd "$dir"
     if [ -f "README.md" ]; then
-        pandoc README.md -o README.pdf
+        pandoc README.md -o README.pdf --pdf-engine=xelatex
     else
         echo "Warning: README.md not found in $dir"
     fi
