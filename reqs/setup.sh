@@ -2,70 +2,85 @@
 
 echo "🌊 Welcome to Sea++ setup! 🌊"
 
-# Check if pandoc is installed
-if ! command -v pandoc &> /dev/null; then
-    echo "pandoc is not installed."
-    # Detect the OS
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        echo "You are using Linux. You can install pandoc using:"
-        echo "sudo apt-get install pandoc"
-    elif [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "You are using macOS. You can install pandoc using:"
-        echo "brew install pandoc"
-    else
-        echo "Please install pandoc manually from https://pandoc.org/installing.html"
+# Check for required tools
+check_command() {
+    if ! command -v $1 &> /dev/null; then
+        echo "❌ $1 is not installed."
+        case $1 in
+            "python3")
+                echo "Please install Python 3.8 or later from https://www.python.org/"
+                ;;
+            "pip3")
+                echo "Please install pip3 using: python3 -m ensurepip --upgrade"
+                ;;
+            "pandoc")
+                if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+                    echo "Install using: sudo apt-get install pandoc"
+                elif [[ "$OSTYPE" == "darwin"* ]]; then
+                    echo "Install using: brew install pandoc"
+                else
+                    echo "Install from: https://pandoc.org/installing.html"
+                fi
+                ;;
+        esac
+        exit 1
     fi
-    exit 1
-fi
-
-# Function to unzip files in a directory
-unzip_files_in_directory() {
-    local dir="$1"
-    echo "Unzipping files in $dir..."
-    cd "$dir"
-    if ls *.zip 1> /dev/null 2>&1; then
-        unzip "*.zip"
-        # Delete all zip files after unzipping
-        rm *.zip
-    else
-        echo "Warning: No .zip files found in $dir"
-    fi
-    cd - > /dev/null
 }
+
+# Check for required commands
+echo "🔍 Checking required tools..."
+check_command "python3"
+check_command "pip3"
+check_command "pandoc"
+
+# Create Python virtual environment
+echo "🐍 Setting up Python virtual environment..."
+python3 -m venv venv
+source venv/bin/activate
+
+# Install Python dependencies
+echo "📦 Installing Python dependencies..."
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
+
+# Create project structure
+echo "📁 Creating project structure..."
+python3 folders.py
 
 # Function to convert README.md to PDF
 convert_md_to_pdf() {
     local dir="$1"
-    echo "Converting README.md to PDF in $dir..."
-    cd "$dir"
-    if [ -f "README.md" ]; then
-        pandoc README.md -o README.pdf --pdf-engine=xelatex
-    else
-        echo "Warning: README.md not found in $dir"
+    if [ -f "$dir/README.md" ]; then
+        echo "📄 Converting README in $dir to PDF..."
+        pandoc "$dir/README.md" -o "$dir/README.pdf" --pdf-engine=xelatex
     fi
-    cd - > /dev/null
 }
 
-# Unzipping marine science resources
-unzip_files_in_directory "Marine Science Subjects 🐠/oceanography"
-unzip_files_in_directory "Marine Science Subjects 🐠/ecology"
-unzip_files_in_directory "Marine Science Subjects 🐠/conservation_science"
+# Convert READMEs to PDF
+echo "📚 Converting documentation..."
+find . -type f -name "README.md" -exec dirname {} \; | while read dir; do
+    convert_md_to_pdf "$dir"
+done
 
-# Unzipping code resources in Python/cheatsheets
-unzip_files_in_directory "Code 🖥️/Python/cheatsheets"
+# Set up pre-commit hooks
+echo "🔧 Setting up git hooks..."
+cat > .git/hooks/pre-commit << 'EOF'
+#!/bin/bash
+# Run tests
+python3 -m pytest
 
-# Convert README.md to PDF
-convert_md_to_pdf "Marine Science Subjects 🐠/oceanography"
-convert_md_to_pdf "Marine Science Subjects 🐠/ecology"
-convert_md_to_pdf "Marine Science Subjects 🐠/conservation_science"
-convert_md_to_pdf "Code 🖥️/Python/cheatsheets"
-convert_md_to_pdf "Code 🖥️/Python/Basic Examples"
-convert_md_to_pdf "Code 🖥️/Python/Image Detection in Marine Science"
-convert_md_to_pdf "Code 🖥️/Python/Machine Learning Applications"
-convert_md_to_pdf "Code 🖥️/Python/Statistical Tests"
-convert_md_to_pdf "Code 🖥️/PyTorch"
-convert_md_to_pdf "Code 🖥️/TensorFlow Models"
-convert_md_to_pdf "Code 🖥️/YOLO"
-convert_md_to_pdf "Code 🖥️/Julia"
+# Run linting
+python3 -m flake8 marine_science
+python3 -m black --check marine_science
+python3 -m isort --check-only marine_science
+EOF
+
+chmod +x .git/hooks/pre-commit
 
 echo "✨ Setup complete! Dive into Sea++! 🐠"
+echo "
+To get started:
+1. Activate the virtual environment: source venv/bin/activate
+2. Run tests: pytest
+3. Check out the documentation in docs/
+"

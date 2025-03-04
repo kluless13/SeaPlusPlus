@@ -7,25 +7,37 @@ def create_directory(path):
     if not os.path.exists(path):
         os.makedirs(path)
 
-# Create Marine Science Subjects folders and subfolders
-marine_science_base = "Marine Science Subjects 🐠"
-marine_science_subjects = ["oceanography", "ecology", "conservation_science"]
+# Create main project structure
+marine_science_dirs = {
+    "marine_science": {
+        "statistics": ["time_series", "spatial", "population"],
+        "oceanography": ["currents", "waves", "tides"],
+        "ecology": ["population_dynamics", "community_analysis"],
+        "conservation": ["protected_areas", "species_monitoring"]
+    }
+}
 
-create_directory(marine_science_base)
-for subject in marine_science_subjects:
-    create_directory(os.path.join(marine_science_base, subject))
+# Create the directory structure
+for main_dir, subdirs in marine_science_dirs.items():
+    for category, components in subdirs.items():
+        base_path = os.path.join(main_dir, category)
+        create_directory(base_path)
+        
+        # Create component directories
+        for component in components:
+            component_path = os.path.join(base_path, component)
+            create_directory(component_path)
+            
+            # Create standard subdirectories for each component
+            create_directory(os.path.join(component_path, "data"))
+            create_directory(os.path.join(component_path, "tests"))
+            create_directory(os.path.join(component_path, "examples"))
+            create_directory(os.path.join(component_path, "docs"))
 
-# Create Code base folder, its subfolders, and further nested subfolders
-code_base = "Code 🖥️"
-code_folders = ["Python", "Julia", "TensorFlow Models", "PyTorch", "YOLO"]
-python_subfolders = ["Basic Examples", "Statistical Tests", "Machine Learning Applications", "Image Detection in Marine Science"]
+# Create documentation directory
+docs_dir = "docs"
+create_directory(docs_dir)
+for section in ["api", "examples", "tutorials", "contributing"]:
+    create_directory(os.path.join(docs_dir, section))
 
-create_directory(code_base)
-for folder in code_folders:
-    create_directory(os.path.join(code_base, folder))
-
-# Create Python nested subfolders
-for subfolder in python_subfolders:
-    create_directory(os.path.join(code_base, "Python", subfolder))
-
-print("Directories and subdirectories created successfully!")
+print("✨ Directory structure created successfully! 🌊")
